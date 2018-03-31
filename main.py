@@ -3,31 +3,33 @@ import random
 
 def numeral_to_str(n):
     # This function converts numeral to string for output it
-    if n == 0:
-        str_num = " ### \n#   #\n#   #\n#   #\n ### "
-    if n == 1:
-        str_num = "  #  \n# #  \n  #  \n  #  \n# # #"
-    if n == 2:
-        str_num = "# # #\n    #\n# # #\n#    \n# # #"
-    if n == 3:
-        str_num = "# # #\n    #\n# # #\n    #\n# # #"
-    if n == 4:
-        str_num = "#   #\n#   #\n# # #\n    #\n    #"
-    if n == 5:
-        str_num = "# # #\n#    \n# # #\n    #\n# # #"
-    if n == 6:
-        str_num = "# # #\n#    \n# # #\n#   #\n# # #"
-    if n == 7:
-        str_num = "# # #\n    #\n  #  \n  #  \n  #  "
-    if n == 8:
-        str_num = "# # #\n#   #\n# # #\n#   #\n# # #"
-    if n == 9:
-        str_num = "# # #\n#   #\n# # #\n    #\n# # #"
+    # Array numbers
+    array_str_numbers = [[" # # ", "#   #", "#   #", "#   #", " # # "],  # 0
+                         ["  #  ", "# #  ", "  #  ", "  #  ", "# # #"],  # 1
+                         ["# # #", "    #", "# # #", "#    ", "# # #"],  # 2
+                         ["# # #", "    #", "# # #", "    #", "# # #"],  # 3
+                         ["#   #", "#   #", "# # #", "    #", "    #"],  # 4
+                         ["# # #", "#    ", "# # #", "    #", "# # #"],  # 5
+                         ["# # #", "#    ", "# # #", "#   #", "# # #"],  # 6
+                         ["# # #", "    #", "  #  ", "  #  ", "  #  "],  # 7
+                         ["# # #", "#   #", "# # #", "#   #", "# # #"],  # 8
+                         ["# # #", "#   #", "# # #", "    #", "# # #"]]  # 9
+    str_num = ""
+    for i in range(0, 5):
+        for j in n:
+            str_num += array_str_numbers[j][i] + "    "
+        str_num += "\n"
     return str_num
 
 
-print("Hi!\nType ENTER when you will be ready to ROLL the dice.")
+print("Hi!\nHow much dices would you roll?")
+amount_of_dices = int(input())
+print("Type ENTER when you will be ready to ROLL the dice.")
+
 while True:
     input()
-    print(numeral_to_str(random.randint(1, 6)))
+    temp = []
+    for i in range(amount_of_dices):
+        temp.append(random.randint(1, 6))
+    print(numeral_to_str(temp))
     print("\nType ENTER when you will be ready to ROLL the dice again.")

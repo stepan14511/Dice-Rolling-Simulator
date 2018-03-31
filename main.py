@@ -27,5 +27,7 @@ def numeral_to_str(n):
 
 
 print("Hi!\nType ENTER when you will be ready to ROLL the dice.")
-input()
-print(numeral_to_str(random.randint(1, 6)))
+while True:
+    input()
+    print(numeral_to_str(random.randint(1, 6)))
+    print("\nType ENTER when you will be ready to ROLL the dice again.")
